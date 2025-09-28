@@ -1,0 +1,70 @@
+{
+  "en": {
+    "nav": {
+      "features": "Features",
+      "about": "About",
+      "contact": "Contact",
+      "login": "Login"
+    },
+    "hero": {
+      "title": "Welcome to Digimed Dashboard",
+      "subtitle": "Manage and monitor all your digital health operations in one place.",
+      "cta": "Get Started"
+    },
+    "features": {
+      "heading": "Features",
+      "f1_title": "Real-time Monitoring",
+      "f1_text": "Track performance and metrics in real time.",
+      "f2_title": "Reports & Analytics",
+      "f2_text": "Generate detailed reports and insights.",
+      "f3_title": "Secure Access",
+      "f3_text": "Role-based access and data encryption."
+    },
+    "about": {
+      "heading": "About",
+      "text": "Digimed Dashboard provides seamless control over your digital health infrastructure. Built to be intuitive, reliable, and scalable."
+    },
+    "contact": {
+      "heading": "Contact Us",
+      "name": "Your Name",
+      "email": "Your Email",
+      "message": "Your Message",
+      "send": "Send Message"
+    },
+    "footer": "© 2025 Digimed. All rights reserved."
+  },
+  "ja": {
+    "nav": {
+      "features": "機能",
+      "about": "会社概要",
+      "contact": "お問い合わせ",
+      "login": "ログイン"
+    },
+    "hero": {
+      "title": "デジメッドダッシュボードへようこそ",
+      "subtitle": "すべてのデジタルヘルス業務を一括管理・監視できます。",
+      "cta": "始める"
+    },
+    "features": {
+      "heading": "機能",
+      "f1_title": "リアルタイム監視",
+      "f1_text": "パフォーマンスや指標をリアルタイムで追跡。",
+      "f2_title": "レポートと分析",
+      "f2_text": "詳細なレポートとインサイトを生成。",
+      "f3_title": "セキュアアクセス",
+      "f3_text": "ロールベースアクセスとデータ暗号化。"
+    },
+    "about": {
+      "heading": "会社概要",
+      "text": "Digimed Dashboardは、デジタルヘルス基盤をシームレスに管理するために設計されています。直感的で信頼性が高く、拡張性も備えています。"
+    },
+    "contact": {
+      "heading": "お問い合わせ",
+      "name": "お名前",
+      "email": "メールアドレス",
+      "message": "メッセージ",
+      "send": "送信"
+    },
+    "footer": "© 2025 Digimed. 無断複写・転載を禁じます。"
+  }
+}

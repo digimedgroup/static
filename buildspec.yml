@@ -1,0 +1,74 @@
+version: 0.2
+
+env:
+  variables:
+    ENVIRONMENT: "dev"
+    DATE: "2024-01-01"
+    CLOUDFRONT_DIST_ID: "E3QZ5EXAMPLE"
+    BUCKET_NAME: "BALTI"
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 22
+    commands:
+      - echo "Installing dependencies (if any)..."
+      # Add npm install if you have JS dependencies
+      - npm install || true
+
+  pre_build:
+    commands:
+      - echo "Preparing static site for deployment"
+
+  build:
+    commands:
+      - echo "Build phase skipped (pure static HTML site)"
+
+  post_build:
+    commands:
+      - echo "Deploying static site to S3 bucket"
+      # Use the project root (or wherever your index.html is)
+      - cd ./ # assuming your index.html is here
+
+      # Create a unique version identifier
+      - VERSION=$(date +%Y%m%d%H%M%S)
+
+      # Determine bucket based on environment
+      - |
+        if [[ "$ENVIRONMENT" == "dev" ]]; then
+          BUCKET=$BUCKET_NAME
+        elif [[ "$ENVIRONMENT" == "stage" ]]; then
+          BUCKET=$BUCKET_NAME
+        elif [[ "$ENVIRONMENT" == "live" ]]; then
+          BUCKET=$BUCKET_NAME
+        else
+          echo "No matching environment found. Skipping deployment."
+          exit 0
+        fi
+
+      - echo "Uploading version $VERSION to s3://$BUCKET/$VERSION"
+
+      # Upload all static files (CSS, JS, assets) with long cache
+      - aws s3 sync . s3://$BUCKET/$VERSION --delete --exclude "index.html" --cache-control "max-age=31536000, immutable"
+
+      # Upload index.html with short cache
+      - aws s3 cp index.html s3://$BUCKET/$VERSION/index.html --cache-control "no-store, no-cache, must-revalidate, proxy-revalidate" --expires 0
+
+      # Update latest pointer
+      - aws s3 sync s3://$BUCKET/$VERSION s3://$BUCKET/latest --delete
+
+      # Remove old versions, keep last 3
+      - VERSIONS=$(aws s3 ls s3://$BUCKET/ | awk '{print $2}' | grep -E '[0-9]{14}' | sort -r)
+      - COUNT=0
+      - for v in $VERSIONS; do COUNT=$((COUNT+1)); if [ $COUNT -gt 3 ]; then aws s3 rm s3://$BUCKET/$v --recursive; fi; done
+
+      # Invalidate CloudFront cache
+      - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID --paths "/index.html" "/latest/index.html" "/*"
+
+      - echo "Deployment of version $VERSION completed successfully."
+
+artifacts:
+  files:
+    - "**/*"
+  base-directory: .
+  discard-paths: yes

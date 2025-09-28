@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>守るん99</title>
+  <link rel="icon" type="image/x-icon" href="assets/digimed.ico" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="/assets/logo/icon_digimed.png" alt="Digimed Logo" id="logo" />
+      </div>
+      <nav class="nav">
+        <a href="#features" data-i18n="nav.features"></a>
+        <a href="#about" data-i18n="nav.about"></a>
+        <a href="#contact" data-i18n="nav.contact"></a>
+        <a href="#login" class="btn-login" data-i18n="nav.login"></a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 data-i18n="hero.title"></h1>
+        <p data-i18n="hero.subtitle"></p>
+        <a href="#login" class="btn-primary" data-i18n="hero.cta"></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="features section">
+    <div class="container">
+      <h2 data-i18n="features.heading"></h2>
+      <div class="feature-list">
+        <div class="feature-item">
+          <h3 data-i18n="features.f1_title"></h3>
+          <p data-i18n="features.f1_text"></p>
+        </div>
+        <div class="feature-item">
+          <h3 data-i18n="features.f2_title"></h3>
+          <p data-i18n="features.f2_text"></p>
+        </div>
+        <div class="feature-item">
+          <h3 data-i18n="features.f3_title"></h3>
+          <p data-i18n="features.f3_text"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about section">
+    <div class="container">
+      <h2 data-i18n="about.heading"></h2>
+      <p data-i18n="about.text"></p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact section">
+    <div class="container">
+      <h2 data-i18n="contact.heading"></h2>
+      <form id="contact-form">
+        <input type="text" name="name" data-i18n-placeholder="contact.name" required />
+        <input type="email" name="email" data-i18n-placeholder="contact.email" required />
+        <textarea name="message" rows="4" data-i18n-placeholder="contact.message" required></textarea>
+        <button type="submit" class="btn-primary" data-i18n="contact.send"></button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p data-i18n="footer"></p>
+    </div>
+  </footer>
+
+  <!-- JS Files -->
+  <script src="/js/lang.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

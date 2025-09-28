@@ -2,7 +2,7 @@ let currentLang = "ja"; // 👈 set default here ("en" or "ja")
 let translations = {};
 
 async function loadLang(lang) {
-  const res = await fetch("lang/lang.json");
+  const res = await fetch("/lang/lang.json");
   translations = await res.json();
   currentLang = lang;
   applyTranslations();

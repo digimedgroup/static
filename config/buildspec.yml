@@ -5,7 +5,7 @@ env:
     ENVIRONMENT: "dev"
     DATE: "2024-01-01"
     CLOUDFRONT_DIST_ID: "E3QZ5EXAMPLE"
-    BUCKET_NAME: "BALTI"
+    BUCKET_NAME: "BUCKET_NAME"
 
 phases:
   install:
@@ -14,7 +14,6 @@ phases:
     commands:
       - echo "Installing dependencies (if any)..."
       # Add npm install if you have JS dependencies
-      - npm install || true
 
   pre_build:
     commands:

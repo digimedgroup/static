@@ -1,84 +1,245 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>守るん99</title>
-  <link rel="icon" type="image/x-icon" href="assets/digimed.ico" />
-  <link rel="stylesheet" href="/css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【公式】守るん99 | 医療データをスマホで管理、セカンドオピニオンをもっと手軽に</title>
+    <style>
+        /*
+        * CSSコード - スタイリッシュでモダンなデザイン
+        */
+        :root {
+            --main-color: #1A4A8F;   /* ディープブルー (信頼感) */
+            --accent-color: #00A86B; /* クリーンなグリーン (安心・行動) */
+            --bg-light: #F7F9FC;    /* ごく薄いグレー */
+            --text-dark: #333;
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8; /* 行間を広げ、読みやすく */
+            background-color: white;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: white;
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.6rem;
+            color: var(--main-color);
+            font-weight: 600;
+        }
+
+        /* ファーストビュー (ヒーローセクション) */
+        .hero {
+            background-color: var(--bg-light);
+            padding: 100px 0;
+            text-align: center;
+        }
+        .hero h2 {
+            font-size: 3rem;
+            color: var(--main-color);
+            margin-bottom: 25px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 50px;
+            color: #555;
+        }
+        .hero .app-visual {
+            max-width: 600px;
+            height: 300px;
+            background-color: #e2e6ea; /* 画像プレースホルダー */
+            border-radius: 15px;
+            margin: 40px auto 0;
+            box-shadow: var(--shadow-light); /* シャドウを追加 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-weight: bold;
+        }
+
+        /* CTAボタン (アクションを促す) */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 18px 50px;
+            font-size: 1.6rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 8px 15px rgba(0, 168, 107, 0.3);
+        }
+        .cta-button:hover {
+            background-color: #008f5a;
+            transform: translateY(-2px); /* 浮き上がるアニメーション */
+            box-shadow: 0 10px 20px rgba(0, 168, 107, 0.4);
+        }
+
+        /* 特徴セクション */
+        .features {
+            padding: 80px 0;
+        }
+        .features h3 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 60px;
+            color: var(--main-color);
+            font-weight: 700;
+        }
+        .feature-list {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+        }
+        .feature-item {
+            flex-basis: 32%;
+            padding: 30px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-light); /* カードデザイン */
+            transition: transform 0.3s;
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+        .feature-item h4 {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin-top: 10px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+        }
+
+        /* セカンドオピニオンCTAセクション */
+        .cta-bottom {
+            background-color: var(--main-color);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .cta-bottom h3 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        /* フッター */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+            color: #6c757d;
+            background-color: #f8f8f8;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .hero { padding: 60px 0; }
+            .hero h2 { font-size: 2rem; }
+            .hero p { font-size: 1.1rem; }
+            .cta-button { font-size: 1.3rem; padding: 15px 30px; }
+
+            .features { padding: 50px 0; }
+            .feature-list { flex-direction: column; }
+            .feature-item { flex-basis: 100%; margin-bottom: 20px; }
+            .cta-bottom h3 { font-size: 1.8rem; }
+        }
+    </style>
 </head>
 <body>
-  <header class="header">
-    <div class="container">
-      <div class="logo">
-        <img src="/assets/logo/icon_digimed.png" alt="Digimed Logo" id="logo" />
-      </div>
-      <nav class="nav">
-        <a href="#features" data-i18n="nav.features"></a>
-        <a href="#about" data-i18n="nav.about"></a>
-        <a href="#contact" data-i18n="nav.contact"></a>
-        <a href="#login" class="btn-login" data-i18n="nav.login"></a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1 data-i18n="hero.title"></h1>
-        <p data-i18n="hero.subtitle"></p>
-        <a href="#login" class="btn-primary" data-i18n="hero.cta"></a>
-      </div>
-    </div>
-  </section>
-
-  <section id="features" class="features section">
-    <div class="container">
-      <h2 data-i18n="features.heading"></h2>
-      <div class="feature-list">
-        <div class="feature-item">
-          <h3 data-i18n="features.f1_title"></h3>
-          <p data-i18n="features.f1_text"></p>
+    <header>
+        <div class="container">
+            <h1>守るん99 by 株式会社デジメット</h1>
         </div>
-        <div class="feature-item">
-          <h3 data-i18n="features.f2_title"></h3>
-          <p data-i18n="features.f2_text"></p>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>
+                もう大切な医療データをなくさない。<br>
+                スマホで管理して、セカンドオピニオンを**手軽に**。
+            </h2>
+            <p>
+                レントゲンやMRIなどの医療データを、アプリで一元管理。<br>
+                あなたの健康と未来を「守るん99」がお手伝いします。
+            </p>
+
+            <p>
+                <a href="#download" class="cta-button">
+                    無料ダウンロードはこちら
+                </a>
+            </p>
+
+            <div class="app-visual">
+                <img src="./mainslide.jpg" alt="イメージ" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+            </div>
         </div>
-        <div class="feature-item">
-          <h3 data-i18n="features.f3_title"></h3>
-          <p data-i18n="features.f3_text"></p>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h3>「守るん99」が選ばれる3つの理由</h3>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h4>データ管理の利便性向上</h4>
+                    <p>
+                        煩雑だったCD-Rでのデータ管理から卒業。必要な医療データにいつでもどこでもアクセスでき、利便性が大幅に向上します。
+                    </p>
+                </div>
+                <div class="feature-item">
+                    <h4>セカンドオピニオンをサポート</h4>
+                    <p>
+                        アプリ経由でデータを専門医に簡単に共有。迅速かつ正確にセカンドオピニオンを得られる社会を目指します。
+                    </p>
+                </div>
+                <div class="feature-item">
+                    <h4>あなたのデータをしっかり守る</h4>
+                    <p>
+                        大切な医療データは厳重なセキュリティ対策のもとで管理。安心してご利用いただける環境を提供します。
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="about" class="about section">
-    <div class="container">
-      <h2 data-i18n="about.heading"></h2>
-      <p data-i18n="about.text"></p>
-    </div>
-  </section>
+    <section class="cta-bottom" id="download">
+        <div class="container">
+            <h3>「守るん99」であなたの医療データを<br>もっと身近で、もっと安心に。</h3>
+            <a href="【ここにApp Store/Google Playのリンクを挿入】" class="cta-button">
+                アプリを無料で試す
+            </a>
+            <p style="margin-top: 20px; font-size: 1.1rem;">
+                ※ダウンロードは無料です。
+            </p>
+        </div>
+    </section>
 
-  <section id="contact" class="contact section">
-    <div class="container">
-      <h2 data-i18n="contact.heading"></h2>
-      <form id="contact-form">
-        <input type="text" name="name" data-i18n-placeholder="contact.name" required />
-        <input type="email" name="email" data-i18n-placeholder="contact.email" required />
-        <textarea name="message" rows="4" data-i18n-placeholder="contact.message" required></textarea>
-        <button type="submit" class="btn-primary" data-i18n="contact.send"></button>
-      </form>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <p data-i18n="footer"></p>
-    </div>
-  </footer>
-
-  <!-- JS Files -->
-  <script src="/js/lang.js"></script>
-  <script src="/js/main.js"></script>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Digimed Co., Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【公式】守るん99 | 医療データをスマホで管理、セカンドオピニオンをもっと手軽に</title>
+    <title>【公式】守るん99 | スマホで医療データ管理！適切な処置を受けられるアプリ</title>
     <link rel="icon" type="image/x-icon" href="assets/digimed.ico" />
     <style>
         /*
@@ -180,7 +180,7 @@
         <div class="container">
             <h2>
                 もう大切な医療データをなくさない。<br>
-                スマホで管理して、セカンドオピニオンを**手軽に**。
+                スマホで管理して、セカンドオピニオンを手軽に。
             </h2>
             <p>
                 レントゲンやMRIなどの医療データを、アプリで一元管理。<br>
@@ -228,7 +228,7 @@
     <section class="cta-bottom" id="download">
         <div class="container">
             <h3>「守るん99」であなたの医療データを<br>もっと身近で、もっと安心に。</h3>
-            <a href="【ここにApp Store/Google Playのリンクを挿入】" class="cta-button">
+            <a href="" class="cta-button" id="link">
                 アプリを無料で試す
             </a>
             <p style="margin-top: 20px; font-size: 1.1rem;">
@@ -239,11 +239,27 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Digimed Co., Ltd. All Rights Reserved.</p>
+            <p>&copy; Digimed Co., Ltd. All Rights Reserved.</p>
         </div>
     </footer>
   <!-- JS Files -->
-  <script src="/js/lang.js"></script>
-  <script src="/js/main.js"></script>
+    <script>
+        const ANDROID_STORE = "https://play.google.com/store/apps/details?id=com.digimed.protect99";
+        const IOS_STORE     = "https://apps.apple.com/jp/app/id6753712440";
+
+        const ua = navigator.userAgent.toLowerCase();
+        const isAndroid = ua.indexOf('android') > -1;
+
+        let link = document.getElementById('link');
+        if (isAndroid) {
+            // Androidの場合
+            //window.location.replace(ANDROID_STORE);
+            let url = ANDROID_STORE;
+        } else {
+            // Android以外（iOS, PC等）
+            //window.location.replace(IOS_STORE);
+            let url = IOS_STORE;
+        }
+    </script>
 </body>
 </html>

@@ -228,7 +228,7 @@
     <section class="cta-bottom" id="download">
         <div class="container">
             <h3>「守るん99」であなたの医療データを<br>もっと身近で、もっと安心に。</h3>
-            <a href="" class="cta-button" id="link">
+            <a href="" class="cta-button" id="link" target="_blank">
                 アプリを無料で試す
             </a>
             <p style="margin-top: 20px; font-size: 1.1rem;">
@@ -253,12 +253,12 @@
         let link = document.getElementById('link');
         if (isAndroid) {
             // Androidの場合
-            //window.location.replace(ANDROID_STORE);
             let url = ANDROID_STORE;
+            link.setAttribute('href', url);
         } else {
             // Android以外（iOS, PC等）
-            //window.location.replace(IOS_STORE);
             let url = IOS_STORE;
+            link.setAttribute('href', url);
         }
     </script>
 </body>
